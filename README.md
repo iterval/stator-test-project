@@ -10,12 +10,17 @@ repository root:
 ```sh
 ./scripts/test.sh
 ./scripts/fail.sh
+./scripts/wait.sh
 ```
 
 | Check name | Image | Script path |
 | --- | --- | --- |
 | Tests | `node:24-bookworm-slim` | `scripts/test.sh` |
 | Expected failure | `node:24-bookworm-slim` | `scripts/fail.sh` |
+| Running cancellation | `node:24-bookworm-slim` | `scripts/wait.sh` |
 
 `Tests` should pass. The optional `Expected failure` check prints a deliberate
 failure to stderr and exits with status 1.
+The `Running cancellation` check waits for a termination signal and exits
+nonzero after it is observed; if no signal arrives, it exits nonzero after the
+wait instead of passing accidentally.
