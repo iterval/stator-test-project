@@ -7,6 +7,7 @@
     "node": ">=24"
   },
   "scripts": {
-    "test": "./scripts/test.sh"
+    "test": "./scripts/test.sh",
+    "ui-check": "./scripts/ui-check.sh"
   }
 }
